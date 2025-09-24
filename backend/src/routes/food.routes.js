@@ -11,5 +11,8 @@ const upload = multer({
 // Post /api/food/   it is protected means only foodparter can add
 router.post('/', authMiddleware.authFoodPartnerMiddleware,upload.single("video"), foodController.createFood)
 
+// Get  /api/food/[protected]
+
+router.get('/', authMiddleware.authUserMiddleware,foodController.getFoodItems)
 
 module.exports = router;
