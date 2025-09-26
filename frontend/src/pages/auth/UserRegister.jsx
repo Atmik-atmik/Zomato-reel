@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import '../styles/auth.css'
+import '../../styles/auth.css'
 import { useNavigate } from 'react-router-dom'
 
 const UserRegister = () => {
@@ -10,12 +10,12 @@ const UserRegister = () => {
   const handleSubmit = async (e)=>{ 
     e.preventDefault();
 
-    const fullName = e.target.name.value;
+    const name = e.target.name.value;
     const email= e.target.email.value;
     const password= e.target.password.value;
     
     const response = await axios.post("http://localhost:3000/api/auth/user/register",{
-      fullName,
+      name,
       email,
       password
     },{

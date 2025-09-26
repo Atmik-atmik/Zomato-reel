@@ -5,7 +5,7 @@ const foodPartnerModel= require('../models/foodPartner.model')
 
 
 async function registerUser(req,res){
-    const {fullName, email, password} = req.body;
+    const {name, email, password} = req.body;
 
     const isUserAlreadyExists = await userModel.findOne({
         email
@@ -20,7 +20,7 @@ async function registerUser(req,res){
     const hashedPassword = await bcrypt.hash(password,10)
 
     const user = await userModel.create({
-        fullName,email,password: hashedPassword
+        name,email,password: hashedPassword
     })
 
     const token = jwt.sign({
@@ -33,7 +33,7 @@ async function registerUser(req,res){
         user: {
             _id: user._id,
             email: user.email,
-            fullName: user.fullName
+            name: user.name
         }
     })
 }

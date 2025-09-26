@@ -1,11 +1,13 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
-import UserRegister from '../pages/UserRegister'
-import UserLogin from '../pages/UserLogin'
-import FoodPartnerRegister from '../pages/FoodPartnerRegister'
-import FoodPartnerLogin from '../pages/FoodPartnerLogin'
+import UserRegister from '../pages/auth/UserRegister'
+import UserLogin from '../pages/auth/UserLogin'
+import FoodPartnerRegister from '../pages/auth/FoodPartnerRegister'
+import FoodPartnerLogin from '../pages/auth/FoodPartnerLogin'
 import Home from '../pages/general/Home'
+
+import CreateFood from '../pages/food-partner/CreateFood'
 
 const AppRoutes = () => {
   return (
@@ -16,6 +18,8 @@ const AppRoutes = () => {
             <Route path = "/food-partner/register" element = {<FoodPartnerRegister/> } />
             <Route path = "/food-partner/login" element = {<FoodPartnerLogin/> } />
             <Route path= "/" element= {<Home/>}/>
+            {/* when food partner registers : */}
+            <Route path= "/create-food" element= {<CreateFood/>}/> 
 
         </Routes>
 
